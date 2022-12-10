@@ -13,6 +13,8 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatIconModule } from '@angular/material/icon';
 import { MatListModule } from '@angular/material/list';
+import { APP_INITIALIZER } from '@angular/core';
+import { NewsfetchserviceService } from './newsfetchservice.service';
 
 @NgModule({
   declarations: [
@@ -33,7 +35,17 @@ import { MatListModule } from '@angular/material/list';
     MatIconModule,
     MatListModule
   ],
-  providers: [],
+  providers: 
+  [{
+    provide: APP_INITIALIZER,
+    useFactory: newsProviderFactory,
+    deps: [NewsfetchserviceService],
+    multi: true
+  }],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
+
+export function newsProviderFactory(provider: NewsfetchserviceService) {
+  return () => provider.getNews();
+  }
