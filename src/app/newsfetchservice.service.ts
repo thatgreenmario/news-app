@@ -9,7 +9,8 @@ import { HttpClient,HttpHeaders } from '@angular/common/http';
 export class NewsfetchserviceService {
 
   //Global variable storing All fetch data
-  news : NewsData[] = [];
+  newsBlockData : NewsData[] = [];
+  allNews : NewsData[] = [];
 
   constructor(
     private http:HttpClient
@@ -17,18 +18,19 @@ export class NewsfetchserviceService {
 
   private newsFetchURL = 'api/v1/topics';
 
-  /* getNews(): Observable<NewsData[]> {
-    return this.http.get<NewsData[]>(this.newsFetchURL)
-  } */
-
   getNews() {
     return new Promise((resolve, reject) => {
-    //An Http Get to my API to get the available languages in my application
     this.http.get<NewsData[]>(this.newsFetchURL).subscribe(res => {
-    //Store the available languages in a data store
-    this.news = res;
+    this.allNews = res;
+    this.newsBlockData = res;
     resolve(true);
     })
     })
+    }
+
+    updateNewsBlock(selectedNews : NewsData){
+
+      this.newsBlockData.length = 0;
+       this.newsBlockData.push(selectedNews);
     }
 }

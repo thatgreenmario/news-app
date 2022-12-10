@@ -11,13 +11,13 @@ export class NewsblockComponent implements OnInit {
 
   constructor(private newsfetch: NewsfetchserviceService) { }
 
-  news : NewsData[] = [];
+  newsBlockData : NewsData[] = [];
   ngOnInit(): void {
     this.getNews();
   }
 
   getNews():void {
-    this.news = this.newsfetch.news;
+    this.newsBlockData = this.newsfetch.newsBlockData;
     /* this.newsfetch.getNews().subscribe(news => this.news = news); */
   }
 
