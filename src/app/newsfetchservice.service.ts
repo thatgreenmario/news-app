@@ -16,7 +16,8 @@ export class NewsfetchserviceService {
     private http:HttpClient
   ) { }
 
-  private newsFetchURL = 'api/v1/topics';
+  /* private newsFetchURL = 'api/v1/topics'; */
+  private newsFetchURL = 'https://us-central1-dnr-news-app.cloudfunctions.net/topics';
 
   getNews() {
     return new Promise((resolve, reject) => {
