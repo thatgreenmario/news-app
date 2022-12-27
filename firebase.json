@@ -14,7 +14,7 @@
     ],
     "redirects": [ {
       "source": "/api/:path*",
-      "destination": "https://brutalist.report/:path",
+      "destination": "https://brutalist.report/api/:path",
       "type": 301
     }
     ]
