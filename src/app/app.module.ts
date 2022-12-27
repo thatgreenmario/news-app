@@ -17,6 +17,7 @@ import {MatTreeModule} from '@angular/material/tree';
 import { APP_INITIALIZER } from '@angular/core';
 import { NewsfetchserviceService } from './newsfetchservice.service';
 import { MatExpansionModule } from '@angular/material/expansion';
+import {MatCheckboxModule} from '@angular/material/checkbox'; 
 
 @NgModule({
   declarations: [
@@ -37,7 +38,8 @@ import { MatExpansionModule } from '@angular/material/expansion';
     MatIconModule,
     MatListModule,
     MatTreeModule,
-    MatExpansionModule
+    MatExpansionModule,
+    MatCheckboxModule
   ],
   providers: 
   [{

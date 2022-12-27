@@ -9,8 +9,10 @@
         <mat-expansion-panel-header>
             All Sources
         </mat-expansion-panel-header>
+        <mat-checkbox [checked]="selectAllFilter" (change)="updateAllNewsList(sourcesList)">Select All</mat-checkbox>
         <mat-nav-list *ngFor="let source of sourcesList">
-            <a mat-list-item (click)="updateNewsList(source)">{{source.name}}</a>
+            <!-- <a mat-list-item (click)="updateNewsList(source)">{{source.name}}</a> -->
+            <mat-checkbox [checked]="selectSingleFilter" (change)="updateNewsList(source)">{{source.name}}</mat-checkbox>
            <!--  <a mat-list-item >Hibernate</a> -->
             <!-- <a mat-list-item routerLink="#">Struts</a> -->
         </mat-nav-list>

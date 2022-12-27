@@ -21,8 +21,8 @@ export class NewsfetchserviceService {
   getNews() {
     return new Promise((resolve, reject) => {
     this.http.get<NewsData[]>(this.newsFetchURL).subscribe(res => {
-    this.allNews = res;
-    this.newsBlockData = res;
+    this.allNews = [...res];
+    this.newsBlockData = [...res];
     resolve(true);
     })
     })
@@ -30,7 +30,25 @@ export class NewsfetchserviceService {
 
     updateNewsBlock(selectedNews : NewsData){
 
-      this.newsBlockData.length = 0;
-       this.newsBlockData.push(selectedNews);
+      /* this.newsBlockData.length = 0;
+       this.newsBlockData.push(selectedNews); */
+       if(!this.newsBlockData.includes(selectedNews)){
+        this.newsBlockData.push(selectedNews);
+       }else{
+        this.newsBlockData.splice(this.newsBlockData.indexOf(selectedNews), 1)
+       }
+    }
+
+    updateAllNewsBlock(selectedNews : NewsData[]){
+
+      if(this.newsBlockData.length == 0){
+        selectedNews.forEach(element => {
+          this.newsBlockData.push(element)
+        });
+        /* this.newsBlockData = [...selectedNews] */
+      }else{
+        this.newsBlockData.length =0
+      }
+      
     }
 }
