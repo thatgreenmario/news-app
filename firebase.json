@@ -13,8 +13,8 @@
       }
     ],
     "redirects": [ {
-      "source": "/api/:path*",
-      "destination": "https://brutalist.report/api/:path",
+      "source": "https://dnr-news-app.web.app/api/v1/topics",
+      "destination": "https://brutalist.report/api/v1/topics",
       "type": 301
     }
     ]
