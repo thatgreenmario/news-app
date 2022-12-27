@@ -17,7 +17,14 @@
       "destination": "https://brutalist.report/api/:path",
       "type": 301
     }
-    ]
+    ],
+    "headers": [ {
+      "source" : "**",
+      "headers" : [ {
+        "key" : "Access-Control-Allow-Origin",
+        "value" : "*"
+      } ]
+    }]
   }
 }
 
