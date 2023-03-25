@@ -18,7 +18,6 @@ export class NewsblockComponent implements OnInit {
 
   getNews():void {
     this.newsBlockData = this.newsfetch.newsBlockData;
-    /* this.newsfetch.getNews().subscribe(news => this.news = news); */
   }
 
 }

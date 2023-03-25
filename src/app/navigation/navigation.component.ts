@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit ,ViewChildren, QueryList, ElementRef} from '@angular/core';
 import { BreakpointObserver, Breakpoints } from '@angular/cdk/layout';
 import { Observable } from 'rxjs';
 import { map, shareReplay } from 'rxjs/operators';
@@ -12,6 +12,8 @@ import { NewsData } from '../NewsData';
 export class NavigationComponent implements OnInit{
 
    currentlyDisplayedCheckboxList : NewsData[] = [];
+   checked = [];
+   @ViewChildren("checkboxes") checkboxes!: QueryList<any>;
    
   ngOnInit(): void {
     this.showAllSources();
@@ -34,4 +36,12 @@ export class NavigationComponent implements OnInit{
     this.newsfetch.updateNewsBlock(source);
   }
 
-}
+  uncheckAll() {
+    this.newsfetch.clearNewsBlock();
+    this.checkboxes.forEach((element) => {
+      //element = false;
+      element.checked = false;
+      console.log(element);
+    });
+
+}}

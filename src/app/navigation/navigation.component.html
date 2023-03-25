@@ -9,8 +9,9 @@
         <mat-expansion-panel-header>
             All Sources
         </mat-expansion-panel-header>
+        <button mat-stroked-button (click)="uncheckAll()">Unselect All</button>
         <mat-nav-list *ngFor="let source of currentlyDisplayedCheckboxList">
-            <mat-checkbox (change)="updateNewsListFromCheckbox(source)">{{source.name}}</mat-checkbox>
+            <mat-checkbox #checkboxes (change)="updateNewsListFromCheckbox(source)">{{source.name}}</mat-checkbox>
         </mat-nav-list>
     </mat-expansion-panel>
     </mat-nav-list>

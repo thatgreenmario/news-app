@@ -38,4 +38,8 @@ export class NewsfetchserviceService {
         this.newsBlockData.splice(this.newsBlockData.indexOf(selectedNews), 1)
        }
     }
+
+    clearNewsBlock(){
+      this.newsBlockData.length = 0
+    }
 }
