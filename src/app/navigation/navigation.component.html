@@ -9,7 +9,7 @@
         <mat-expansion-panel-header>
             All Sources
         </mat-expansion-panel-header>
-        <mat-nav-list *ngFor="let source of currentlyDisplayedList">
+        <mat-nav-list *ngFor="let source of currentlyDisplayedCheckboxList">
             <mat-checkbox (change)="updateNewsListFromCheckbox(source)">{{source.name}}</mat-checkbox>
         </mat-nav-list>
     </mat-expansion-panel>
