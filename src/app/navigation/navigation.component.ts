@@ -11,10 +11,8 @@ import { NewsData } from '../NewsData';
 })
 export class NavigationComponent implements OnInit{
 
-  sourcesList : NewsData[] = [];
-  selectAllFilter = true;
-  selectSingleFilter = true;
-  
+   currentlyDisplayedCheckboxList : NewsData[] = [];
+   
   ngOnInit(): void {
     this.showAllSources();
   }
@@ -28,37 +26,12 @@ export class NavigationComponent implements OnInit{
   constructor(private breakpointObserver: BreakpointObserver,private newsfetch: NewsfetchserviceService) {}
 
   showAllSources():void {
-    this.sourcesList = this.newsfetch.allNews;
-    /* this.newsfetch.getNews().subscribe(news => this.news = news); */
+    this.currentlyDisplayedCheckboxList = [...this.newsfetch.allNews];
   }
 
-  updateNewsList(source : NewsData):void{
+  updateNewsListFromCheckbox(source : NewsData):void{
+
     this.newsfetch.updateNewsBlock(source);
-    this.selectAllFilter = false;
-    this.checkboxBehaviour(2);
   }
 
-  updateAllNewsList(source : NewsData[]):void{
-    this.newsfetch.updateAllNewsBlock(source);
-    this.checkboxBehaviour(1);
-  }
-
-  checkboxBehaviour(input : number):void{
-    if(this.selectSingleFilter == false && this.selectAllFilter == false && input == 1)
-    {
-      this.selectSingleFilter = true;
-      this.selectAllFilter = true;
-    }else{
-      this.selectSingleFilter = false;
-      this.selectAllFilter = false;
-    }
-
-    if(input == 2)
-    {
-      this.selectSingleFilter = false;
-      this.selectAllFilter = false;
-    }
-     
-    
-  }
 }
