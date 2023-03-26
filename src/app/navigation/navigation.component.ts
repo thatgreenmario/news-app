@@ -39,7 +39,6 @@ export class NavigationComponent implements OnInit{
   uncheckAll() {
     this.newsfetch.clearNewsBlock();
     this.checkboxes.forEach((element) => {
-      //element = false;
       element.checked = false;
       console.log(element);
     });
