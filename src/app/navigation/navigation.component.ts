@@ -14,6 +14,7 @@ export class NavigationComponent implements OnInit{
    currentlyDisplayedCheckboxList : NewsData[] = [];
    checked = [];
    @ViewChildren("checkboxes") checkboxes!: QueryList<any>;
+   allToggleIsHidden : Boolean = true;
    
   ngOnInit(): void {
     this.showAllSources();
@@ -33,6 +34,7 @@ export class NavigationComponent implements OnInit{
 
   updateNewsListFromCheckbox(source : NewsData):void{
 
+    this.allToggleIsHidden = false;
     this.newsfetch.updateNewsBlock(source);
   }
 
