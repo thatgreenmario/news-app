@@ -3,12 +3,8 @@
       [attr.role]="(isHandset$ | async) ? 'dialog' : 'navigation'"
       [mode]="(isHandset$ | async) ? 'over' : 'side'"
       [opened]="(isHandset$ | async) === false">
-    <!-- <mat-toolbar>Menu</mat-toolbar> -->
     <mat-nav-list>
       <mat-expansion-panel [class.mat-elevation-z0]="true" [expanded] = true>
-        <!-- <mat-expansion-panel-header>
-            Sources
-        </mat-expansion-panel-header> -->
         <button mat-stroked-button (click)="uncheckAll()" *ngIf="!allToggleIsHidden">Unselect All</button>
         <mat-nav-list *ngFor="let source of currentlyDisplayedCheckboxList">
             <mat-checkbox #checkboxes (change)="updateNewsListFromCheckbox(source)">{{source.name}}</mat-checkbox>
@@ -26,9 +22,9 @@
         *ngIf="isHandset$ | async">
         <mat-icon aria-label="Side nav toggle icon">menu</mat-icon>
       </button>
-      <span>HUKUM</span>
+      <h1>DNR.news</h1>
     </mat-toolbar>
-    <!-- Add Content Here -->
+    <!-- Content Here -->
     <app-newsblock></app-newsblock>
   </mat-sidenav-content>
 </mat-sidenav-container>
