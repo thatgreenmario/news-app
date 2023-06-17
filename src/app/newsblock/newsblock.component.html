@@ -1,11 +1,14 @@
 <div class = "row">
     <div class = "col-md-4 col-sm-6 col-12" *ngFor="let newss of newsBlockData">             
-        <span>{{newss.name}}</span>
+        <b><span>{{newss.name}}</span></b>
+        <ul>
         <div *ngFor="let arti of newss.articles;">
-                *
+            <li>
                 <a href={{arti.url}}>
                 {{arti.title}}
                 </a>
+            </li>
         </div>
+    </ul>
     </div>
 </div>
